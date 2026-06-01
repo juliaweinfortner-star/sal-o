@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Beleza & Cuidado | Guia para Salões de Beleza</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fef9f5;
+            color: #2e241f;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header / navbar */
+        header {
+            background: #fffaf7;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background: rgba(255,250,247,0.92);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #c95b3c, #a23b2a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo i {
+            color: #c95b3c;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #c95b3c;
+            margin-right: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #3e2c24;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #c95b3c;
+        }
+
+        .btn-cta {
+            background: #c95b3c;
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-cta:hover {
+            background: #a9442a;
+            transform: scale(0.97);
+        }
+
+        /* hero section */
+        .hero {
+            padding: 4rem 0 3rem;
+            background: linear-gradient(120deg, #fff5ef, #ffe8df);
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #2a1f1a;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #5a4034;
+            max-width: 550px;
+            margin: 1rem 0 1.8rem;
+        }
+
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img i {
+            font-size: 12rem;
+            color: #d97a5c;
+            filter: drop-shadow(0 12px 18px rgba(0,0,0,0.08));
+        }
+
+        /* cards de dicas principais */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1rem;
+            color: #2e241f;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #c95b3c;
+            margin: 0.8rem auto 0;
+            border-radius: 4px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #ffe4d8;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: #c95b3c;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: #5b4a40;
+            line-height: 1.5;
+        }
+
+        /* checklist / boas práticas */
+        .checklist-section {
+            background: #fff3ed;
+            border-radius: 3rem;
+            padding: 2.5rem 2rem;
+            margin: 2rem 0;
+        }
+
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+
+        .check-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .check-col h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .check-list {
+            list-style: none;
+        }
+
+        .check-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+        }
+
+        .check-list i.fa-check-circle {
+            color: #2b7a4b;
+            font-size: 1.3rem;
+        }
+
+        .check-list i.fa-clock, .check-list i.fa-chart-line {
+            color: #c95b3c;
+            font-size: 1.3rem;
+        }
+
+        /* dicas de gestão */
+        .gestao-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .gestao-item {
+            background: white;
+            border-radius: 2rem;
+            flex: 1;
+            min-width: 240px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            border: 1px solid #ffebe2;
+        }
+
+        .gestao-item i {
+            font-size: 2rem;
+            color: #c95b3c;
+            margin-bottom: 1rem;
+        }
+
+        .gestao-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* depoimento / dica extra */
+        .testimonial {
+            background: #2e241f;
+            color: #ffefe8;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .testimonial i {
+            font-size: 2.5rem;
+            color: #c95b3c;
+            opacity: 0.8;
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 1rem auto;
+            font-style: italic;
+        }
+
+        .assinatura {
+            margin-top: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* formulário de newsletter */
+        .newsletter {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.2rem;
+            margin: 2rem 0 3rem;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+            border: 1px solid #ffddd2;
+        }
+
+        .newsletter h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 1.5rem;
+            color: #5a4a40;
+        }
+
+        .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .form-group input {
+            padding: 0.9rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid #ffcfbf;
+            font-size: 1rem;
+            width: 280px;
+            background: #fffaf7;
+        }
+
+        .form-group button {
+            background: #c95b3c;
+            border: none;
+            padding: 0 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .form-group button:hover {
+            background: #a83e24;
+        }
+
+        footer {
+            background: #1f1713;
+            color: #e6cfc5;
+            padding: 2rem 0;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: #f0cfc2;
+            margin: 0 0.8rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #c95b3c;
+        }
+
+        @media (max-width: 780px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-img i {
+                font-size: 8rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-spa"></i> SalonCare<span style="color:#c95b3c;">+</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#dicas">Dicas Essenciais</a></li>
+                <li><a href="#checklist">Checklist Diário</a></li>
+                <li><a href="#gestao">Gestão & Finanças</a></li>
+                <li><a href="#news">Newsletter</a></li>
+            </ul>
+            <button class="btn-cta" id="btnContato"><i class="fas fa-calendar-alt"></i> Guia Rápido</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Cuidados essenciais para o seu <br>salão de beleza</h1>
+                <p>Do ambiente impecável à gestão financeira: dicas práticas para fidelizar clientes e fazer seu negócio brilhar.</p>
+                <button class="btn-cta" id="heroBtn" style="background:#a9442a;">Explorar guias <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="hero-img">
+                <i class="fas fa-cut"></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- seção cards principais -->
+        <div id="dicas">
+            <div class="section-title">🌟 Pilares do Cuidado</div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-broom"></i></div>
+                    <h3>Higiene Impecável</h3>
+                    <p>Esterilização de ferramentas, toalhas descartáveis ou lavagem rigorosa, lixeiras com pedal e produtos vencidos nunca! Cliente repara em cada detalhe.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-smile-beam"></i></div>
+                    <h3>Experiência Acolhedora</h3>
+                    <p>Ofereça uma bebida de boas-vindas, música ambiente suave e pergunte sobre preferências. Pequenos gestos criam fidelidade.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Equipe Treinada</h3>
+                    <p>Invista em cursos de atualização (tendências de corte, coloração, segurança). Profissionais motivados entregam serviços impecáveis.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h3>Gestão de Agenda</h3>
+                    <p>Use sistemas de agendamento online, evite sobreposições e lembre clientes com 24h de antecedência. Reduza faltas e maximize faturamento.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- checklist diário / semanal -->
+        <div id="checklist">
+            <div class="checklist-section">
+                <div class="section-title" style="margin-top:0;">📋 Checklist do Salão Perfeito</div>
+                <div class="two-columns">
+                    <div class="check-col">
+                        <h3><i class="fas fa-sun"></i> Rotina Diária</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-check-circle"></i> Higienizar superfícies (bancadas, cadeiras, espelhos)</li>
+                            <li><i class="fas fa-check-circle"></i> Verificar estoque de luvas, toucas e produtos químicos</li>
+                            <li><i class="fas fa-check-circle"></i> Testar equipamentos (secadores, cadeiras hidráulicas)</li>
+                            <li><i class="fas fa-check-circle"></i> Recepcionar clientes com cortesia e prontidão</li>
+                            <li><i class="fas fa-check-circle"></i> Conferir agendamentos e confirmar horários</li>
+                        </ul>
+                    </div>
+                    <div class="check-col">
+                        <h3><i class="fas fa-chart-line"></i> Gestão Semanal</h3>
+                        <ul class="check-list">
+                            <li><i class="fas fa-clock"></i> Análise de produtos mais usados / reposição</li>
+                            <li><i class="fas fa-clock"></i> Avaliação de feedbacks (redes sociais e pesquisas)</li>
+                            <li><i class="fas fa-clock"></i> Reunião rápida com equipe para alinhar metas</li>
+                            <li><i class="fas fa-clock"></i> Limpeza profunda de filtros, ar-condicionado</li>
+                            <li><i class="fas fa-clock"></i> Revisão de fluxo de caixa e despesas fixas</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top: 1.5rem; background: #ffede4; border-radius: 2rem; padding: 1rem 1.5rem;">
+                    <p><i class="fas fa-lightbulb" style="color:#c95b3c;"></i> <strong>Dica extra:</strong> Crie um checklist visual na área dos funcionários. Assim ninguém esquece os passos críticos de segurança e organização.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- gestão financeira e marketing -->
+        <div id="gestao">
+            <div class="section-title">📊 Como cuidar da gestão do salão</div>
+            <div class="gestao-grid">
+                <div class="gestao-item">
+                    <i class="fas fa-coins"></i>
+                    <h4>Controle Financeiro</h4>
+                    <p>Separe contas pessoais das do salão. Utilize planilhas ou apps para registrar despesas (produtos, aluguel, comissões). Mantenha reserva de emergência para 3 meses.</p>
+                </div>
+                <div class="gestao-item">
+                    <i class="fas fa-chart-simple"></i>
+                    <h4>Precificação Justa</h4>
+                    <p>Calcule custo por serviço: produtos + tempo + comissão + taxa de energia/água. Compare com mercado, mas agregue valor à sua experiência única.</p>
+                </div>
+                <div class="gestao-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Fidelização</h4>
+                    <p>Ofereça programa de pontos, descontos em aniversário e indicação. Cliente fiel reduz custo de aquisição e aumenta ticket médio.</p>
+                </div>
+                <div class="gestao-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Presença Digital</h4>
+                    <p>Invista em Instagram e Google Meu Negócio. Mostre resultados de cortes, depoimentos e mantenha horários atualizados. Agende online pelo WhatsApp ou site.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- dica especial com "depoimento" / autoridade -->
+        <div class="testimonial">
+            <i class="fas fa-quote-left"></i>
+            <p>"Cuidar do salão vai além da estética: é criar uma cultura de organização, respeito e evolução constante. Pequenas mudanças diárias transformam o negócio."</p>
+            <div class="assinatura">— Equipe SalonCare+ para gestores de beleza</div>
+        </div>
+
+        <!-- dicas de manutenção de equipamentos -->
+        <div style="background:#FFF1EA; border-radius: 2rem; padding: 1.8rem; margin: 1rem 0;">
+            <div style="display: flex; flex-wrap: wrap; gap:1rem; align-items: center; justify-content: space-between;">
+                <div><i class="fas fa-screwdriver-wrench" style="font-size: 2.5rem; color:#c95b3c;"></i> <strong style="font-size:1.3rem;">Manutenção preventiva</strong>
+                <p style="margin-top: 0.5rem;">Limpe os secadores semanalmente (filtros), lubrifique tesouras a cada 15 dias e calibrar cadeiras hidráulicas mensalmente. Equipamentos duráveis reduzem imprevistos.</p>
+                </div>
+                <i class="fas fa-hand-sparkles" style="font-size: 3rem; color:#bd755b;"></i>
+            </div>
+        </div>
+
+        <!-- newsletter / novidades -->
+        <div class="newsletter" id="news">
+            <h3><i class="far fa-envelope"></i> Receba mais dicas de gestão</h3>
+            <p>Inscreva-se para receber checklists exclusivos e novidades sobre cuidados para salões de beleza.</p>
+            <div class="form-group">
+                <input type="email" id="emailInput" placeholder="Seu melhor e-mail" required>
+                <button id="newsBtn">Assinar Newsletter</button>
+            </div>
+            <div id="msgFeedback" style="margin-top: 12px; font-size: 0.9rem; color: #2b7a4b;"></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-copy">
+            <i class="fas fa-spa"></i> SalonCare+ &copy; 2025 — Cuidado e gestão para salões de beleza
+        </div>
+        <div class="footer-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="far fa-envelope"></i></a>
+            <a href="#">Políticas</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // interações simples: botões e newsletter simulado
+    const btnContato = document.getElementById('btnContato');
+    const heroBtn = document.getElementById('heroBtn');
+    const newsButton = document.getElementById('newsBtn');
+    const emailInput = document.getElementById('emailInput');
+    const msgFeedback = document.getElementById('msgFeedback');
+
+    function showAlertMessage(text, isError = false) {
+        if(msgFeedback) {
+            msgFeedback.innerHTML = text;
+            msgFeedback.style.color = isError ? '#b13e2a' : '#2b7a4b';
+            setTimeout(() => {
+                if(msgFeedback) msgFeedback.innerHTML = '';
+            }, 3500);
+        } else {
+            alert(text);
+        }
+    }
+
+    // Função para guia rápido (simula envio de informação)
+    function handleQuickGuide() {
+        showAlertMessage('✨ Baixe nosso guia gratuito: "10 passos para um salão impecável" enviado no e-mail demo! (simulação)');
+    }
+
+    if(btnContato) btnContato.addEventListener('click', handleQuickGuide);
+    if(heroBtn) heroBtn.addEventListener('click', handleQuickGuide);
+
+    // newsletter fake com validação simples
+    if(newsButton) {
+        newsButton.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            if(!email) {
+                showAlertMessage('Por favor, digite um e-mail válido.', true);
+                return;
+            }
+            if(!email.includes('@') || !email.includes('.')) {
+                showAlertMessage('E-mail parece inválido. Exemplo: nome@dominio.com', true);
+                return;
+            }
+            // simulação de sucesso
+            showAlertMessage(`📧 Ótimo! Enviaremos novidades para ${email}. Obrigado por assinar.`);
+            emailInput.value = '';
+        });
+    }
+
+    // suavidade nos links de ancora
+    document.querySelectorAll('.nav-links a, .footer-links a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
